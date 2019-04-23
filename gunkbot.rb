@@ -7,6 +7,8 @@ require_relative "plugins/join"
 require_relative "plugins/link"
 require_relative "plugins/ddg"
 require_relative "plugins/quotes"
+require_relative "plugins/yt"
+require_relative "plugins/snd_bank"
 
 # Memo code
 class Memo < Struct.new(:nick, :channel, :text, :time)
@@ -33,7 +35,7 @@ gunk = Cinch::Bot.new do
 
     # plugins
     config.plugins.prefix = /^\./
-    config.plugins.plugins = [Cinch::Plugins::Identify, Cinch::Responses, Cinch::Ircjoin, Cinch::Linkinfo, Cinch::DDGSearch, Cinch::Quotes]
+    config.plugins.plugins = [Cinch::Plugins::Identify, Cinch::Responses, Cinch::Ircjoin, Cinch::Linkinfo, Cinch::DDGSearch, Cinch::Quotes, Cinch::YouTube, Cinch::SoundBank]
     config.plugins.options[Cinch::Plugins::Identify] = {
       :type     => :nickserv,
       :password => "password",
